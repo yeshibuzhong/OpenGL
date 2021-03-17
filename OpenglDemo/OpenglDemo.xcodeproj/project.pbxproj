@@ -23,7 +23,6 @@
 		C94CACBA25FF9D3D0006E83C /* DoubleSampleVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C94CACB925FF9D3D0006E83C /* DoubleSampleVC.m */; };
 		C94CACC02600471D0006E83C /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C94CACBF2600471D0006E83C /* BaseViewController.m */; };
 		C9D19ABC25FF8DE9002892A5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C9D19ABB25FF8DE9002892A5 /* AppDelegate.m */; };
-		C9D19ABF25FF8DE9002892A5 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C9D19ABE25FF8DE9002892A5 /* SceneDelegate.m */; };
 		C9D19AC225FF8DE9002892A5 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9D19AC125FF8DE9002892A5 /* ViewController.m */; };
 		C9D19AC525FF8DE9002892A5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C9D19AC325FF8DE9002892A5 /* Main.storyboard */; };
 		C9D19AC725FF8DEC002892A5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C9D19AC625FF8DEC002892A5 /* Assets.xcassets */; };
@@ -55,8 +54,6 @@
 		C9D19AB725FF8DE9002892A5 /* OpenglDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OpenglDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9D19ABA25FF8DE9002892A5 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		C9D19ABB25FF8DE9002892A5 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		C9D19ABD25FF8DE9002892A5 /* SceneDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneDelegate.h; sourceTree = "<group>"; };
-		C9D19ABE25FF8DE9002892A5 /* SceneDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneDelegate.m; sourceTree = "<group>"; };
 		C9D19AC025FF8DE9002892A5 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		C9D19AC125FF8DE9002892A5 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		C9D19AC425FF8DE9002892A5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -138,8 +135,6 @@
 			children = (
 				C9D19ABA25FF8DE9002892A5 /* AppDelegate.h */,
 				C9D19ABB25FF8DE9002892A5 /* AppDelegate.m */,
-				C9D19ABD25FF8DE9002892A5 /* SceneDelegate.h */,
-				C9D19ABE25FF8DE9002892A5 /* SceneDelegate.m */,
 				C9D19AC025FF8DE9002892A5 /* ViewController.h */,
 				C9D19AC125FF8DE9002892A5 /* ViewController.m */,
 				C94CACBE2600471D0006E83C /* BaseViewController.h */,
@@ -253,7 +248,6 @@
 				C9209AAB2600B48F008040FE /* FileWrapper.m in Sources */,
 				C9209A942600B116008040FE /* esTransform.c in Sources */,
 				C94CACBA25FF9D3D0006E83C /* DoubleSampleVC.m in Sources */,
-				C9D19ABF25FF8DE9002892A5 /* SceneDelegate.m in Sources */,
 				C9209AB02600B6BA008040FE /* ParticleSystem.c in Sources */,
 				C9209ACF2601B3B2008040FE /* blur.c in Sources */,
 				C9209AB72600B857008040FE /* ParticleSystemVCViewController.m in Sources */,
