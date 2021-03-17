@@ -47,13 +47,13 @@
 
 
 GLfloat vertices[] = {
-    -0.8,  0, 0.0f,
-    0.8, 0, 0.0f,
-    0.8,  0.8, 0.0f,
+    -0.5,  -0.5, 0.0f,
+    0.5, -0.5, 0.0f,
+    0.5,  0.5, 0.0f,
 
-    -0.8,  0, 0.0f,
-    0.8,  0.8, 0.0f,
-    -0.8,  0.8, 0.0f
+    -0.5,  -0.5, 0.0f,
+    0.5,  0.5, 0.0f,
+    -0.5,  0.5, 0.0f
 };
 
 //GLfloat vertices[] = {
@@ -189,7 +189,7 @@ static void Update ( ESContext *esContext, float deltaTime )
     esPerspective(&userData->projectionMatrix, 60.0f, aspect, 1.0f, 20.0f);
 
     esMatrixLoadIdentity(&userData->modelViewMatrix);
-    esTranslate(&userData->modelViewMatrix, 0, 0, -4);
+    esTranslate(&userData->modelViewMatrix, 0, 0, -2);
 
     esMatrixMultiply(&userData->mvpMatrix, &userData->modelViewMatrix, &userData->projectionMatrix);
 }

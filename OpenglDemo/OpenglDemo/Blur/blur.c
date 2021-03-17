@@ -47,14 +47,20 @@
 
 
 GLfloat blur_vertices[] = {
-    -0.8,  0, 0.0f,
-    0.8, 0, 0.0f,
-    0.8,  0.8, 0.0f,
-    
-    -0.8,  0, 0.0f,
-    0.8,  0.8, 0.0f,
-    -0.8,  0.8, 0.0f
+    -0.5,  -0.5, 0.0f,
+    0.5, -0.5, 0.0f,
+    0.5,  0.5, 0.0f,
+
+    -0.5,  -0.5, 0.0f,
+    0.5,  0.5, 0.0f,
+    -0.5,  0.5, 0.0f
 };
+
+//GLfloat blur_vertices[] = {
+//    -0.5,  -0.25, 0.0f,
+//    0.5, -0.25, 0.0f,
+//    0,  0.5, 0.0f,
+//};
 
 GLfloat blur_texture[] = {
     0,0,
@@ -176,12 +182,13 @@ static void Update ( ESContext *esContext, float deltaTime )
 {
     UserData *userData = esContext->userData;
     
-    float aspect = (float)esContext->width / (float)esContext->height;
+    float aspect = (float)esContext->width / ((float)esContext->height / 2.0);
     esMatrixLoadIdentity(&userData->projectionMatrix);
     esPerspective(&userData->projectionMatrix, 60.0f, aspect, 1.0f, 20.0f);
     
     esMatrixLoadIdentity(&userData->modelViewMatrix);
-    esTranslate(&userData->modelViewMatrix, 0, 0, -4);
+    esTranslate(&userData->modelViewMatrix, 0, 0, -2);
+    esScale(&userData->modelViewMatrix, 2, 2, 2);
     
     esMatrixMultiply(&userData->mvpMatrix, &userData->modelViewMatrix, &userData->projectionMatrix);
 }
@@ -204,7 +211,7 @@ static void Draw ( ESContext *esContext )
     glBindTexture(GL_TEXTURE_2D, userData->texture);
     glUniform1i(userData->samplerLoc, 0);
     
-    glUniform1f(userData->blurStep, 1.0);
+    glUniform1f(userData->blurStep, 0.75);
     
     glEnableVertexAttribArray(0);
     glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, blur_vertices);
@@ -218,6 +225,8 @@ static void Draw ( ESContext *esContext )
     //原始画面
     glViewport ( 0, esContext->height / 2, esContext->width , esContext->height / 2 );
     glUniform1f(userData->blurStep, 0);
+    esTranslate(&userData->mvpMatrix, 0, -0.3, 0);
+    glUniformMatrix4fv(userData->mvpLoc, 1, GL_FALSE, (GLfloat *)&userData->mvpMatrix.m[0][0]);
     glDrawArrays(GL_TRIANGLES, 0, 6);
     
 }
