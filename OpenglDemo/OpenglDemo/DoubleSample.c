@@ -212,7 +212,7 @@ static void Draw ( ESContext *esContext )
 
     glActiveTexture(GL_TEXTURE1);
     glBindTexture(GL_TEXTURE_2D, userData->texture[1]);
-    glUniform1i(userData->samplerLoc[1], 0);
+    glUniform1i(userData->samplerLoc[1], 1);
     
     glEnableVertexAttribArray(0);
     glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, vertices);
