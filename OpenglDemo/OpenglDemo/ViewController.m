@@ -21,8 +21,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.titleArray = [NSMutableArray arrayWithObjects:@"粒子动画", @"双重纹理", nil];
-    self.vcArray = [NSMutableArray arrayWithObjects:@"ParticleSystemVCViewController", @"DoubleSampleVC", nil];
+    self.titleArray = [NSMutableArray arrayWithObjects:@"粒子动画", @"双重纹理", @"图片模糊", nil];
+    self.vcArray = [NSMutableArray arrayWithObjects:@"ParticleSystemVCViewController", @"DoubleSampleVC", @"BlurViewController", nil];
 
 }
 
