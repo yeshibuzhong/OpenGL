@@ -25,7 +25,6 @@
     view.context = self.context;
     view.drawableDepthFormat = GLKViewDrawableDepthFormat24;
     
-    [self setupGL];
 }
 
 - (void)dealloc
