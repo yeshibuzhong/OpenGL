@@ -193,6 +193,13 @@ static void Update ( ESContext *esContext, float deltaTime )
     esMatrixMultiply(&userData->mvpMatrix, &userData->modelViewMatrix, &userData->projectionMatrix);
 }
 
+
+float blurValue = 0;
+
+void changeBlurValue(float value) {
+    blurValue = value;
+}
+
 ///
 // Draw a triangle using the shader pair created in Init()
 //
@@ -211,7 +218,7 @@ static void Draw ( ESContext *esContext )
     glBindTexture(GL_TEXTURE_2D, userData->texture);
     glUniform1i(userData->samplerLoc, 0);
     
-    glUniform1f(userData->blurStep, 0.75);
+    glUniform1f(userData->blurStep, blurValue);
     
     glEnableVertexAttribArray(0);
     glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, blur_vertices);

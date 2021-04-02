@@ -17,7 +17,7 @@
 		C9209AB72600B857008040FE /* ParticleSystemVCViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9209AB62600B857008040FE /* ParticleSystemVCViewController.m */; };
 		C9209ABA2600B8D4008040FE /* DoubleSample.c in Sources */ = {isa = PBXBuildFile; fileRef = C9209AB92600B8D4008040FE /* DoubleSample.c */; };
 		C9209AC92601B34C008040FE /* BlurViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9209AC82601B34C008040FE /* BlurViewController.m */; };
-		C9209ACF2601B3B2008040FE /* blur.c in Sources */ = {isa = PBXBuildFile; fileRef = C9209ACE2601B3B2008040FE /* blur.c */; };
+		C9209ACF2601B3B2008040FE /* Blur.c in Sources */ = {isa = PBXBuildFile; fileRef = C9209ACE2601B3B2008040FE /* Blur.c */; };
 		C94CACAE25FF98200006E83C /* basemap.tga in Resources */ = {isa = PBXBuildFile; fileRef = C94CACAC25FF981F0006E83C /* basemap.tga */; };
 		C94CACAF25FF98200006E83C /* lightmap.tga in Resources */ = {isa = PBXBuildFile; fileRef = C94CACAD25FF98200006E83C /* lightmap.tga */; };
 		C94CACBA25FF9D3D0006E83C /* DoubleSampleVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C94CACB925FF9D3D0006E83C /* DoubleSampleVC.m */; };
@@ -44,7 +44,7 @@
 		C9209AB92600B8D4008040FE /* DoubleSample.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = DoubleSample.c; sourceTree = "<group>"; };
 		C9209AC72601B34C008040FE /* BlurViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BlurViewController.h; sourceTree = "<group>"; };
 		C9209AC82601B34C008040FE /* BlurViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BlurViewController.m; sourceTree = "<group>"; };
-		C9209ACE2601B3B2008040FE /* blur.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = blur.c; sourceTree = "<group>"; };
+		C9209ACE2601B3B2008040FE /* Blur.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = Blur.c; sourceTree = "<group>"; };
 		C94CACAC25FF981F0006E83C /* basemap.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = basemap.tga; sourceTree = "<group>"; };
 		C94CACAD25FF98200006E83C /* lightmap.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = lightmap.tga; sourceTree = "<group>"; };
 		C94CACB825FF9D3D0006E83C /* DoubleSampleVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DoubleSampleVC.h; sourceTree = "<group>"; };
@@ -99,7 +99,7 @@
 			children = (
 				C9209AC72601B34C008040FE /* BlurViewController.h */,
 				C9209AC82601B34C008040FE /* BlurViewController.m */,
-				C9209ACE2601B3B2008040FE /* blur.c */,
+				C9209ACE2601B3B2008040FE /* Blur.c */,
 			);
 			path = Blur;
 			sourceTree = "<group>";
@@ -249,7 +249,7 @@
 				C9209A942600B116008040FE /* esTransform.c in Sources */,
 				C94CACBA25FF9D3D0006E83C /* DoubleSampleVC.m in Sources */,
 				C9209AB02600B6BA008040FE /* ParticleSystem.c in Sources */,
-				C9209ACF2601B3B2008040FE /* blur.c in Sources */,
+				C9209ACF2601B3B2008040FE /* Blur.c in Sources */,
 				C9209AB72600B857008040FE /* ParticleSystemVCViewController.m in Sources */,
 				C9209AC92601B34C008040FE /* BlurViewController.m in Sources */,
 				C9209A932600B116008040FE /* esShapes.c in Sources */,

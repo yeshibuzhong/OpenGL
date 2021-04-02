@@ -8,6 +8,7 @@
 #import "BlurViewController.h"
 
 int esBlurMain ( ESContext *esContext, float width, float height );
+void changeBlurValue(float value);
 
 @interface BlurViewController ()
 
@@ -19,6 +20,18 @@ int esBlurMain ( ESContext *esContext, float width, float height );
     [super viewDidLoad];
     
     [self setupGL];
+    
+    CGFloat statusHeight = [[UIApplication sharedApplication] statusBarFrame].size.height;
+    
+    CGFloat navheight = self.navigationController.navigationBar.frame.size.height;
+    UISlider *slider = [[UISlider alloc] initWithFrame:CGRectMake(100, statusHeight + navheight, 200, 50)];
+    slider.backgroundColor = [UIColor redColor];
+    [slider addTarget:self action:@selector(slider:) forControlEvents:UIControlEventValueChanged];
+    [self.view addSubview:slider];
+}
+
+- (void)slider:(UISlider *)slider {
+    changeBlurValue(slider.value);
 }
 
 - (void)setupGL

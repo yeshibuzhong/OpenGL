@@ -7,17 +7,6 @@
 
 #import "BaseViewController.h"
 
-extern void esMain( ESContext *esContext );
-
-@implementation GLData
-
-@end
-
-
-@interface BaseViewController ()
-
-@end
-
 @implementation BaseViewController
 
 - (void)viewDidLoad {
@@ -63,15 +52,12 @@ extern void esMain( ESContext *esContext );
         self.context = nil;
     }
 
-    // Dispose of any resources that can be recreated.
 }
 
 - (void)setupGL
 {
     [EAGLContext setCurrentContext:self.context];
     memset( &_esContext, 0, sizeof( _esContext ) );
-  
-//    esMain( &_esContext );
 }
 
 - (void)tearDownGL

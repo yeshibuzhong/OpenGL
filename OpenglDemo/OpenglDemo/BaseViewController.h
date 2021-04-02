@@ -11,13 +11,6 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface GLData: NSObject
-
-@property (nonatomic, assign) GLuint programObject;
-@property (nonatomic, assign) GLuint texture;
-
-@end
-
 @interface BaseViewController : GLKViewController {
     ESContext _esContext;
 }
