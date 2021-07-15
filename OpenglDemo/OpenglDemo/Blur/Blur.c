@@ -157,7 +157,7 @@ static int Init ( ESContext *esContext )
     userData->programObject = esLoadProgram ( vShaderStr, fShaderStr );
     
     userData->mvpLoc = glGetUniformLocation(userData->programObject, "u_mvpMatrix");
-    userData->samplerLoc = glGetUniformLocation(userData->programObject, "u_texture");
+    userData->samplerLoc = glGetUniformLocation(userData->programObject, "s_texture");
     userData->blurStep = glGetUniformLocation(userData->programObject, "u_blurStep");
     
     userData->texture = LoadTexture ( esContext->platformData, "lightmap.tga" );
