@@ -172,6 +172,11 @@ static int Init ( ESContext *esContext )
     return TRUE;
 }
 
+ESMatrix matrix1;
+ESMatrix matrix2;
+ESMatrix matrix3;
+ESMatrix matrix4;
+
 ///
 //  Update time-based variables
 //
@@ -185,14 +190,34 @@ static void Update ( ESContext *esContext, float deltaTime )
 
     
     esMatrixLoadIdentity(&userData->modelViewMatrix);
-    //移动到角落
-    esTranslate(&userData->modelViewMatrix, 0.25, -0.75, -2);
-    //缩小0.5倍
-    esScale(&userData->modelViewMatrix, 0.5, 0.5, 0.5);
-    //旋转
-    esRotate(&userData->modelViewMatrix, timeValue, 0, 0, 1);
     
-    esMatrixMultiply(&userData->mvpMatrix, &userData->modelViewMatrix, &userData->projectionMatrix);
+
+    //正确的使用矩阵相乘其实是有顺序的
+    //应该先缩放，然后旋转，最后移动。
+    //因为矩阵内部是左乘运算，最后的操作应该放在最左侧
+//    esTranslate(&userData->modelViewMatrix, 0.25, -0.75, -2);
+//    //旋转
+//    esRotate(&userData->modelViewMatrix, timeValue, 0, 0, 1);
+//    //缩小0.5倍
+//    esScale(&userData->modelViewMatrix, 0.5, 0.5, 0.5);
+//    
+//    esMatrixMultiply(&userData->mvpMatrix, &userData->modelViewMatrix, &userData->projectionMatrix);
+    
+    
+    //使用多个矩阵和使用一个矩阵一样，需要先计算缩放和旋转的结果，缩放矩阵在前，旋转矩阵在后。然后在计算前边的结果和移动，前面结果矩阵在前，移动矩阵在后
+    esMatrixLoadIdentity(&matrix1);
+    esTranslate(&matrix1, 0.25, -0.75, -2);
+    
+    esMatrixLoadIdentity(&matrix2);
+    esRotate(&matrix2, timeValue, 0, 0, 1);
+    
+    esMatrixLoadIdentity(&matrix3);
+    esScale(&matrix3, 0.5, 0.5, 0.5);
+    
+    esMatrixMultiply(&matrix4, &matrix3, &matrix2);
+    esMatrixMultiply(&matrix4, &matrix4, &matrix1);
+    
+    esMatrixMultiply(&userData->mvpMatrix, &matrix4, &userData->projectionMatrix);
 }
 
 ///
