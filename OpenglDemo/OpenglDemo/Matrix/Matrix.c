@@ -187,8 +187,6 @@ static void Update ( ESContext *esContext, float deltaTime )
     float aspect = (float)esContext->width / (float)esContext->height;
     esMatrixLoadIdentity(&userData->projectionMatrix);
     esPerspective(&userData->projectionMatrix, 60.0f, aspect, 1.0f, 20.0f);
-
-    
     esMatrixLoadIdentity(&userData->modelViewMatrix);
     
 
@@ -203,21 +201,36 @@ static void Update ( ESContext *esContext, float deltaTime )
 //    
 //    esMatrixMultiply(&userData->mvpMatrix, &userData->modelViewMatrix, &userData->projectionMatrix);
     
-    
+   //这块代码和上边注释掉的效果一样
     //使用多个矩阵和使用一个矩阵一样，需要先计算缩放和旋转的结果，缩放矩阵在前，旋转矩阵在后。然后在计算前边的结果和移动，前面结果矩阵在前，移动矩阵在后
     esMatrixLoadIdentity(&matrix1);
     esTranslate(&matrix1, 0.25, -0.75, -2);
-    
+
     esMatrixLoadIdentity(&matrix2);
     esRotate(&matrix2, timeValue, 0, 0, 1);
-    
+
     esMatrixLoadIdentity(&matrix3);
     esScale(&matrix3, 0.5, 0.5, 0.5);
-    
+
     esMatrixMultiply(&matrix4, &matrix3, &matrix2);
     esMatrixMultiply(&matrix4, &matrix4, &matrix1);
     
+    //错误的顺序
+//    esMatrixMultiply(&matrix4, &matrix3, &matrix1);
+//    esMatrixMultiply(&matrix4, &matrix4, &matrix2);
+
     esMatrixMultiply(&userData->mvpMatrix, &matrix4, &userData->projectionMatrix);
+    
+    
+    //缩放效果
+//    esMatrixLoadIdentity(&matrix1);
+//    esTranslate(&matrix1, 0, -0, -2);
+//
+//    esMatrixLoadIdentity(&matrix2);
+//    esScale(&matrix2, sin(timeValue / 10), sin(timeValue / 10), sin(timeValue / 10));
+//    esMatrixMultiply(&matrix3, &matrix2, &matrix1);
+//
+//    esMatrixMultiply(&userData->mvpMatrix, &matrix3, &userData->projectionMatrix);
 }
 
 ///
