@@ -24,6 +24,8 @@
 		C94CACC02600471D0006E83C /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C94CACBF2600471D0006E83C /* BaseViewController.m */; };
 		C9ADD4C426A6A229001B3859 /* MatrixViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9ADD4C326A6A229001B3859 /* MatrixViewController.m */; };
 		C9ADD4C626A6A276001B3859 /* Matrix.c in Sources */ = {isa = PBXBuildFile; fileRef = C9ADD4C526A6A276001B3859 /* Matrix.c */; };
+		C9ADD4CA26A6F1D8001B3859 /* CubeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9ADD4C926A6F1D8001B3859 /* CubeViewController.m */; };
+		C9ADD4CC26A6F1F5001B3859 /* Cube.c in Sources */ = {isa = PBXBuildFile; fileRef = C9ADD4CB26A6F1F5001B3859 /* Cube.c */; };
 		C9D19ABC25FF8DE9002892A5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C9D19ABB25FF8DE9002892A5 /* AppDelegate.m */; };
 		C9D19AC225FF8DE9002892A5 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9D19AC125FF8DE9002892A5 /* ViewController.m */; };
 		C9D19AC525FF8DE9002892A5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C9D19AC325FF8DE9002892A5 /* Main.storyboard */; };
@@ -56,6 +58,9 @@
 		C9ADD4C226A6A229001B3859 /* MatrixViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MatrixViewController.h; sourceTree = "<group>"; };
 		C9ADD4C326A6A229001B3859 /* MatrixViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MatrixViewController.m; sourceTree = "<group>"; };
 		C9ADD4C526A6A276001B3859 /* Matrix.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = Matrix.c; sourceTree = "<group>"; };
+		C9ADD4C826A6F1D8001B3859 /* CubeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CubeViewController.h; sourceTree = "<group>"; };
+		C9ADD4C926A6F1D8001B3859 /* CubeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CubeViewController.m; sourceTree = "<group>"; };
+		C9ADD4CB26A6F1F5001B3859 /* Cube.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = Cube.c; sourceTree = "<group>"; };
 		C9D19AB725FF8DE9002892A5 /* OpenglDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OpenglDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9D19ABA25FF8DE9002892A5 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		C9D19ABB25FF8DE9002892A5 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -129,6 +134,16 @@
 			path = Matrix;
 			sourceTree = "<group>";
 		};
+		C9ADD4C726A6F1C2001B3859 /* Cube */ = {
+			isa = PBXGroup;
+			children = (
+				C9ADD4C826A6F1D8001B3859 /* CubeViewController.h */,
+				C9ADD4C926A6F1D8001B3859 /* CubeViewController.m */,
+				C9ADD4CB26A6F1F5001B3859 /* Cube.c */,
+			);
+			path = Cube;
+			sourceTree = "<group>";
+		};
 		C9D19AAE25FF8DE8002892A5 = {
 			isa = PBXGroup;
 			children = (
@@ -158,6 +173,7 @@
 				C9209ACC2601B388008040FE /* DoubleSample */,
 				C9209ACD2601B395008040FE /* Blur */,
 				C9ADD4C126A6A1D5001B3859 /* Matrix */,
+				C9ADD4C726A6F1C2001B3859 /* Cube */,
 				C94CACBC260045480006E83C /* Resource */,
 				C9D19ADE25FF91E5002892A5 /* Utils */,
 				C9D19AC325FF8DE9002892A5 /* Main.storyboard */,
@@ -255,11 +271,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				C9ADD4C426A6A229001B3859 /* MatrixViewController.m in Sources */,
+				C9ADD4CA26A6F1D8001B3859 /* CubeViewController.m in Sources */,
 				C94CACC02600471D0006E83C /* BaseViewController.m in Sources */,
 				C9D19AC225FF8DE9002892A5 /* ViewController.m in Sources */,
 				C9D19ABC25FF8DE9002892A5 /* AppDelegate.m in Sources */,
 				C9209A912600B116008040FE /* esUtil.c in Sources */,
 				C9209A922600B116008040FE /* esShader.c in Sources */,
+				C9ADD4CC26A6F1F5001B3859 /* Cube.c in Sources */,
 				C9D19ACD25FF8DEC002892A5 /* main.m in Sources */,
 				C9209ABA2600B8D4008040FE /* DoubleSample.c in Sources */,
 				C9209AAB2600B48F008040FE /* FileWrapper.m in Sources */,
