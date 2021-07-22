@@ -208,7 +208,7 @@ static int Init ( ESContext *esContext )
     // Fill in particle data array
     srand ( 0 );
     
-    if ( userData->texture[0] <= 0 || userData->texture[1] <= 0)
+    if ( userData->texture[0] <= 0)
     {
         return FALSE;
     }
