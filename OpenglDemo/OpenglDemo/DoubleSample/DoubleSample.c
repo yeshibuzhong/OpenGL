@@ -47,28 +47,22 @@
 
 
 GLfloat vertices[] = {
-    -0.5,  -0.5, 0.0f,
-    0.5, -0.5, 0.0f,
-    0.5,  0.5, 0.0f,
-
-    -0.5,  -0.5, 0.0f,
-    0.5,  0.5, 0.0f,
-    -0.5,  0.5, 0.0f
+    -0.5, -0.5, 0.0, 0.0, 0.0,
+    0.5, -0.5, 0.0f, 1.0, 0.0,
+    0.5, 0.5, 0.0f, 1.0, 1.0,
+    -0.5, 0.5, 0.0, 0.0, 1.0
 };
 
-//GLfloat vertices[] = {
-//    -0.5,  -0, 0.0f, 1, 1, 0, 1,
-//    0.5, -0, 0.0f, 1, 1, 0, 1,
-//    0,  1, 0.0f, 1, 1, 0, 1,
-//};
+GLfloat colors[] = {
+    1.0, 1.0, 1.0, 1.0,
+    1.0, 1.0, 1.0, 1.0,
+    1.0, 1.0, 1.0, 1.0,
+    1.0, 1.0, 1.0, 1.0
+};
 
-GLfloat texture[] = {
-    0,0,
-    1,0,
-    1,1,
-    0,0,
-    1,1,
-    0,1
+unsigned int indices[] = {
+    0, 1, 2,
+    3, 0, 2
 };
 
 typedef struct
@@ -83,6 +77,8 @@ typedef struct
     ESMatrix projectionMatrix;
     ESMatrix modelViewMatrix;
     ESMatrix mvpMatrix;
+    GLuint vao;
+    GLuint vbo[3];
     
 } UserData;
 
@@ -164,6 +160,35 @@ static int Init ( ESContext *esContext )
     userData->texture[0] = LoadTexture ( esContext->platformData, "basemap.tga" );
     userData->texture[1] = LoadTexture ( esContext->platformData, "lightmap.tga" );
     
+    glGenBuffers(3, userData->vbo);
+    glBindBuffer(GL_ARRAY_BUFFER, userData->vbo[0]);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
+    
+    glBindBuffer(GL_ARRAY_BUFFER, userData->vbo[1]);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(colors), colors, GL_STATIC_DRAW);
+    
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, userData->vbo[2]);
+    glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
+    
+    glGenVertexArrays(1, &userData->vao);
+    glBindVertexArray(userData->vao);
+
+    glBindBuffer(GL_ARRAY_BUFFER, userData->vbo[0]);
+    glEnableVertexAttribArray(0);
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 5 * sizeof(GLfloat), (const void *)0);
+    glEnableVertexAttribArray(1);
+    glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 5 * sizeof(GLfloat), (const void *)(0 + sizeof(GLfloat) * 3));
+    
+    glBindBuffer(GL_ARRAY_BUFFER, userData->vbo[1]);
+    glEnableVertexAttribArray(2);
+    glVertexAttribPointer(2, 4, GL_FLOAT, GL_FALSE, 4 * sizeof(GLfloat), (const void *)0);
+    
+//    glVertexAttrib4f(2, 1.0, 1.0, 1.0, 1.0);
+    
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, userData->vbo[2]);
+    
+    glBindVertexArray(0);
+    
     glClearColor ( 1.0f, 1.0f, 1.0f, 0.0f );
     
     // Fill in particle data array
@@ -214,15 +239,13 @@ static void Draw ( ESContext *esContext )
     glBindTexture(GL_TEXTURE_2D, userData->texture[1]);
     glUniform1i(userData->samplerLoc[1], 1);
     
-    glEnableVertexAttribArray(0);
-    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, vertices);
+//    glVertexAttrib4f(2, 1, 1, 1, 1);
     
-    glEnableVertexAttribArray(1);
-    glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 0, texture);
+    glBindVertexArray(userData->vao);
     
-    glVertexAttrib4f(2, 1, 1, 1, 1);
+    glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
     
-    glDrawArrays(GL_TRIANGLES, 0, 6);
+    glBindVertexArray(0);
 
 }
 
