@@ -37,7 +37,7 @@
 #include <stdlib.h>
 #include <math.h>
 #include "esUtil.h"
-
+#include<string.h>
 #define NUM_PARTICLES   1000
 #define PARTICLE_SIZE   7
 
@@ -168,7 +168,19 @@ static int Init ( ESContext *esContext )
     glBufferData(GL_ARRAY_BUFFER, sizeof(colors), colors, GL_STATIC_DRAW);
     
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, userData->vbo[2]);
-    glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
+    
+    float isMap = 1.0;
+    if (isMap) { //使用直接加载到GPU方式加载到缓冲区
+        glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
+
+    } else { //使用映射方式加载到缓冲区
+        glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), NULL, GL_STATIC_DRAW);
+        GLushort *idxMappedBuf = glMapBufferRange(GL_ELEMENT_ARRAY_BUFFER, 0, sizeof(indices), GL_MAP_WRITE_BIT | GL_MAP_INVALIDATE_BUFFER_BIT);
+        if (idxMappedBuf == NULL) {
+            return FALSE;
+        }
+        memcpy(idxMappedBuf, indices, sizeof(indices));
+    }
     
     glGenVertexArrays(1, &userData->vao);
     glBindVertexArray(userData->vao);
